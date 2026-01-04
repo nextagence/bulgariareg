@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Game Predictor — Bulgaria</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <style>
+    .console-box{
+      font-family: monospace;
+      background-color:#1a1a1a;
+      padding:1rem;
+      border-radius:0.5rem;
+      box-shadow:0 0 20px #00ff88;
+      color:#00ff88;
+      height:250px;
+      overflow-y:auto;
+    }
+    .loading-screen{
+      font-family: monospace;
+      background:#000;
+      color:#00ff88;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100vh;
+      flex-direction:column;
+      position:fixed;
+      inset:0;
+      z-index:50;
+    }
+    .hidden-screen{ display:none; }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-white font-sans">
+  <div id="loading" class="loading-screen">
+    <p>Зареждане... Моля изчакайте.</p>
+  </div>
+
+  <div id="mainContent" class="hidden-screen">
+    <header class="bg-gray-800 p-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-green-400">AI Predictor — България</h1>
+      <nav class="space-x-4">
+        <a href="#how" class="hover:text-green-400">Как работи</a>
+        <a href="#games" class="hover:text-green-400">Игри</a>
+        <a href="#start" class="hover:text-green-400">Старт</a>
+      </nav>
+    </header>
+
+    <section id="start" class="min-h-screen flex flex-col items-center justify-center px-4 text-center">
+      <h2 class="text-4xl font-bold mb-6">AI прогнози за реални печалби</h2>
+      <p class="max-w-xl mb-8 text-gray-300">
+        AI анализ в реално време за Aviator, Mines и Penalty.
+        Активира се автоматично след депозит.
+      </p>
+
+      <button id="startButton"
+        class="bg-green-500 hover:bg-green-600 px-6 py-3 rounded-xl text-lg font-semibold">
+        Активирай прогнозите
+      </button>
+
+      <div id="errorBox" class="hidden bg-red-600 p-6 rounded-xl max-w-md mx-auto mt-6">
+        <h2 class="text-xl font-bold mb-2">⚠️ Профилът не е намерен</h2>
+        <p class="mb-4">
+          Нямаш активен акаунт. Регистрирай се и направи депозит, за да отключиш AI прогнозите.
+        </p>
+        <p class="text-lg mb-4 text-yellow-200">
+          Промо код: <strong class="text-white">KST777</strong>
+        </p>
+
+        <a href="https://standarttrack.com/?promo=018fbaa4-d9aa-4b30-80b8-d8443cb4dd0e&target=register"
+           target="_blank"
+           class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded-lg">
+          Регистрация
+        </a>
+
+        <p class="text-xs mt-3 opacity-90">* AI се активира след депозит</p>
+      </div>
+    </section>
+
+    <section class="bg-gray-800 py-12 px-6 text-center">
+      <h3 class="text-2xl font-bold text-green-400 mb-6">Днешни печалби (€)</h3>
+      <div class="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto text-green-300 text-sm text-left">
+        <p>👤 ID: 92414 — 340€</p>
+        <p>👤 ID: 92513 — 450€</p>
+        <p>👤 ID: 90234 — 290€</p>
+        <p>👤 ID: 93102 — 380€</p>
+        <p>👤 ID: 91877 — 410€</p>
+        <p>👤 ID: 94611 — 360€</p>
+      </div>
+    </section>
+
+    <section id="games" class="bg-gray-800 py-12 px-6 text-center">
+      <h3 class="text-2xl font-bold text-green-400 mb-6">Поддържани игри</h3>
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="bg-gray-700 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-2">✈️ Aviator</h4>
+          <p class="text-gray-300">AI засича точките за кеш-аут.</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-2">💣 Mines</h4>
+          <p class="text-gray-300">По-сигурни ходове, по-малък риск.</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-2">⚽ Penalty</h4>
+          <p class="text-gray-300">По-добри решения във всеки рунд.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="bg-gray-900 py-12 px-6 text-center">
+      <h3 class="text-2xl font-bold text-green-400 mb-6">Как работи</h3>
+      <div class="max-w-3xl mx-auto space-y-4 text-gray-300">
+        <p>📡 AI анализира хиляди рундове.</p>
+        <p>🧠 Открива повтарящи се модели.</p>
+        <p>📲 Получаваш насоки в реално време.</p>
+      </div>
+    </section>
+
+    <section class="bg-black py-12 px-6 text-center">
+      <h3 class="text-xl font-bold text-green-400 mb-4">[ Monitoring Console ]</h3>
+      <div class="console-box max-w-3xl mx-auto text-left">
+        <p>[INFO] Status: ACTIVE</p>
+        <p>[INFO] Region: BG</p>
+        <p>[INFO] Currency: EUR</p>
+      </div>
+    </section>
+
+    <footer class="text-center text-gray-500 text-sm py-6">
+      © 2026 AI Predictor. Играйте отговорно.
+    </footer>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById("loading").classList.add("hidden-screen");
+      document.getElementById("mainContent").classList.remove("hidden-screen");
+    }, 2500);
+
+    document.getElementById("startButton").addEventListener("click", () => {
+      document.getElementById("errorBox").classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
